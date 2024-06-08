@@ -1,0 +1,14 @@
+import React from 'react'
+
+const TaskPage = () => {
+  return (
+    <div className="container">
+    <div className="content">
+      <div className="overlay "></div>
+      StatsPage
+    </div>
+  </div>
+  )
+}
+
+export default TaskPage

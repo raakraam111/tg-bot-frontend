@@ -1,0 +1,435 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Orbitron:wght@400..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex; /* Using flex to align children */
+  flex-direction: column; /* Align children vertically */
+  justify-content: flex-start;
+  background-color: #051c3d;
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  position: relative;
+  top: 7%;
+  z-index: 1;  
+  background: #010314;  
+  background: -webkit-linear-gradient(
+    to right,
+    #004e92,
+    #000428
+  );  
+  background: linear-gradient(to right, #004e92, #000428);
+  border-radius: 70px 70px 0 0;
+  height: 93vh;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center; /* Ensure center alignment */
+  align-items: center;
+  padding: 10px 0;
+  /* background: #330867; Dark background for the entire bar */
+  /* box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); */
+  z-index: 15; /* Ensure the bar is above other content */
+}
+
+.nav-link {
+  flex: 1; /* Each link will take equal space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically and horizontally */
+  text-decoration: none;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  /* background: linear-gradient(145deg, #1a5d2c, #0d7f25); Green gradient */
+  color: white; /* Text color */
+  transition: background-color 0.3s, transform 0.3s;
+  font-family: sans-serif; /* Specific font for nav items */
+  font-size: 14px; /* Font size for nav items */
+  font-weight: 600; /* Font weight for nav items */
+}
+
+.nav-link.active {
+  border: 2px solid lightblue; /* Adds a light blue border */
+  transform: scale(1.1); /* Slightly scale up active link */
+  color: rgb(216, 198, 96); /* Sets the text color */
+}
+
+.styled-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.styled-button:hover {
+  background-color: #0056b3;
+}
+
+.styled-button:active {
+  transform: scale(0.98);
+}
+
+.tg-download-container {
+  background-color: #05053b;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: large;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.15); /* Black overlay with 50% opacity */
+  z-index: 5; /* Lowered to ensure game elements can be above */
+}
+
+.score {
+  font-weight: 800;
+  font-size: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.monster-icon {
+  font-size: 48px;
+  cursor: pointer;
+  z-index: 15; /* Ensure it's above the overlay */
+}
+
+.coin-animation {
+  position: absolute;
+  animation: slideUp 2200ms forwards;
+  color: rgb(253, 252, 250);
+  font-size: 44px;
+  font-weight: 900;
+  z-index: 15; /* Ensure it's above the overlay */
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-210px);
+    opacity: 0;
+  }
+}
+
+.energy-status {
+  position: relative; /* Position it relative to the nearest positioned ancestor */
+  bottom: 10%; /* 10% from the bottom */
+  padding: 2px;
+  color: white; /* Text color */
+  font-weight: bold;
+  width: 100%; /* Adjust width considering left alignment at 4% */
+  /* background-color: #676797; */
+  display: flex;
+  justify-content: space-between; /* Distributes space between items */
+  align-items: center; /* Vertically centers items */
+  overflow: hidden;
+}
+
+.energy-status .left-icon, .energy-status .right-icon {
+  display: flex;
+  align-items: center; /* Ensure vertical alignment is centered */
+  margin-left: 20px;
+  margin-right: 22px;
+}
+
+.energy-status .right-icon {
+  justify-content: flex-end; 
+}
+
+.energy-status .left-icon {
+  justify-content: flex-start; /* Pushes content to the right */
+}
+
+
+.tapmaster-animation {
+  animation: flowUpsideDown 1s infinite;
+}
+
+@keyframes flowUpsideDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+/* .game-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.3s ease-in-out;
+  opacity: 0.8;
+} */
+
+.game-container {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.3s ease-in-out;
+  opacity: 0.8;
+  border-radius: 70px 70px 0 0;
+  box-shadow: 0 0 20px 4px rgba(255, 255, 224, 0.6);
+  width: 100%; /* Make sure it fills the container width */
+  height: 100%; /* Make sure it also fills the container height */
+ overflow: hidden;
+}
+ 
+
+.gradient1 {
+  background: #f953c6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #b91d73,
+    #f953c6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #b91d73,
+    #f953c6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient2 {
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient3 {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient4 {
+  background: #373b44; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient5 {
+  background: #8e2de2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4a00e0,
+    #8e2de2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4a00e0,
+    #8e2de2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient6 {
+  background: #ad5389; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3c1053,
+    #ad5389
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3c1053,
+    #ad5389
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient7 {
+  background: #0f0c29; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #24243e,
+    #302b63,
+    #0f0c29
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #24243e,
+    #302b63,
+    #0f0c29
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient8 {
+  background: #000046; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient9 {
+  background: #44a08d; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #093637,
+    #44a08d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #093637,
+    #44a08d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* .gradient10 {
+  
+} */
+
+.gradient11 {
+  background: #3a7bd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3a6073,
+    #3a7bd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3a6073,
+    #3a7bd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient12 {
+  background: #00bf8f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #001510,
+    #00bf8f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #001510,
+    #00bf8f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient13 {
+  background: #360033; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0b8793,
+    #360033
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0b8793,
+    #360033
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient14 {
+  background: #780206; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #061161,
+    #780206
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #061161,
+    #780206
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient15 {
+  background: #870000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #190a05,
+    #870000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #190a05,
+    #870000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

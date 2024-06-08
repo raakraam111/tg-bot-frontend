@@ -1,0 +1,391 @@
+
+.center-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url('./assets/monsters/bg2.jpeg');
+    background-size: cover;
+    font-family: "Orbitron", sans-serif;
+  }
+  
+  .orbitron-400 {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .black-ops-one-regular {
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* .bg-custom {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('./assets/b1.jpg');
+    background-size: cover;  
+    background-position: cover; 
+    background-repeat: no-repeat;
+    animation: scroll 120s linear infinite;
+  } */
+  
+  @keyframes scroll {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
+   
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Black with 50% opacity */
+    z-index: 10; /* Ensures overlay is above other content */
+  }
+  
+  .content {
+    position: relative;
+    z-index: 20; /* Ensures content is above the overlay */
+    /* color: white; Example content styling */
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-210px);
+      opacity: 0;
+    }
+  }
+  .score {
+    font-weight: 800;
+  }
+  .animation-element {
+    position: fixed;
+    pointer-events: none;
+    animation: slideUp 2200ms forwards;
+    color: white;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    padding: 2px 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: "Orbitron", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    z-index: 200;
+  }
+  
+  .coin-button {
+    width: 150px;
+    height: 200px;
+    /* background-color: #FFD700; Gold color */
+    /* border-radius: 50%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    /* border: 5px solid #B8860B; */
+    /* box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); */
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  
+  .coin-button:active {
+    transform: scale(0.95);
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); */
+  }
+  
+  /* Center the loader and give a glossy dark blue background to the entire view */
+  .bg-custom {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+   
+    /* background: linear-gradient(
+      145deg,
+      #000428,
+      #004e92
+    );  */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+  }
+  
+  .bg-custom-red {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: rgb(11, 17, 8); /* Dark blue glossy background */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+  }
+  
+  .loader {
+    font-size: 48px;
+    color: #f45f19;
+    width: 1em;
+    height: 1em;
+    box-sizing: border-box;
+    background-color: currentcolor;
+    position: relative;
+    border-radius: 50%;
+    transform: rotateX(-60deg) perspective(1000px);
+    /* @apply text-red-700; */
+  }
+  
+  .loader:before,
+  .loader:after {
+    content: "";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    animation: flowerFlow 1s ease-out infinite;
+  }
+  
+  .loader:after {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes flowerFlow {
+    0% {
+      opacity: 1;
+      transform: rotate(0deg);
+      box-shadow: 0 0 0 -0.5em currentcolor, 0 0 0 -0.5em currentcolor,
+        0 0 0 -0.5em currentcolor, 0 0 0 -0.5em currentcolor,
+        0 0 0 -0.5em currentcolor, 0 0 0 -0.5em currentcolor,
+        0 0 0 -0.5em currentcolor, 0 0 0 -0.5em currentcolor;
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(180deg);
+      box-shadow: -1em -1em 0 -0.35em currentcolor,
+        0 -1.5em 0 -0.35em currentcolor, 1em -1em 0 -0.35em currentcolor,
+        -1.5em 0 0 -0.35em currentcolor, 1.5em -0 0 -0.35em currentcolor,
+        -1em 1em 0 -0.35em currentcolor, 0 1.5em 0 -0.35em currentcolor,
+        1em 1em 0 -0.35em currentcolor;
+    }
+  }
+  
+  @keyframes sun-rays {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+  }
+   
+  /* .sun-rays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(147, 147, 73, 0.8) 0%, rgba(255,0,0,0) 70%);
+    animation: sun-rays 0.5s ease-out forwards;
+  } */
+  
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 0 15px 5px rgba(138, 43, 226, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 25px 15px rgba(138, 43, 226, 0.9);
+    }
+  }
+  
+  .electric-effect {
+    position: absolute;
+    top: 50%; /* Adjust based on your layout */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* Adjust size as needed */
+    height: 200px;
+    background-color: transparent;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes floatCoins {
+    from {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(-100vh);
+      opacity: 1;
+    }
+  }
+  
+  .moving-coin {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('/src/assets/monsters/orange-coin.png'); /* Update path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: floatCoins 5s linear infinite;
+  }
+  
+  /* Additional styles for the tap master active state */
+  .tap-master-background {
+    background: linear-gradient(
+      145deg,
+      #000428,
+      #004e92
+    ); /* Dark blue gradient background */
+    position: relative; /* Needed for absolute positioning of children */
+  }
+  
+  .thunder-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px; /* Adjust size as needed */
+    height: 200px;
+    transform: translate(-50%, -50%);
+    background: url('src/assets/monsters/thunder.png') no-repeat center center;
+    background-size: cover;
+    animation: rotateThunder 10s linear infinite;
+  }
+  
+  @keyframes rotateThunder {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  /* Navigation Bar Styles */
+  .navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center; /* Ensure center alignment */
+    align-items: center;
+    padding: 10px 0;
+    /* background: #330867; Dark background for the entire bar */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensure the bar is above other content */
+  }
+  
+  .nav-link {
+    flex: 1; /* Each link will take equal space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically and horizontally */
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    /* background: linear-gradient(145deg, #1a5d2c, #0d7f25); Green gradient */
+    color: white; /* Text color */
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: sans-serif; /* Specific font for nav items */
+    font-size: 14px; /* Font size for nav items */
+    font-weight: 600; /* Font weight for nav items */
+  }
+  
+  .nav-link.active {
+    background: linear-gradient(145deg, #47c16b, #3dc165); /* Highlight active link */
+    transform: scale(1.1); /* Slightly scale up active link */
+    /* color: rgb(216, 198, 96); Change text color for active link */
+  } 
+  .tapper-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    height: 100vh;
+    /* padding: 20px 4px; */
+    z-index: 100;
+  }
+  .score-container {
+    align-self: center; /* Center the score horizontally */
+    margin-top: 10px; /* Give some space from the top */
+    z-index: 100;
+  }
+    
+  /* Positioning the progress bar correctly */
+  .progress-bar-container {
+    position: absolute; /* Positioning it absolutely to place it at a specific spot */
+    width: 100%; /* Stretch to take the full available width */
+    top: 70%; /* Positioning it 70% from the top */
+    z-index: 100; /* Ensure it's above other contents but below the overlay if any */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px; /* Add horizontal padding */
+  }
+  
+  .progress-bar {
+    width: 100%; /* Full width to make it responsive */
+    height: 20px; /* Height of the progress bar */
+    background-color: #000; /* Dark background for the progress bar */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures no overflow */
+  }
+  
+  .progress {
+    background-color: #fff; /* Green color for the filled part */
+    height: 100%; /* Full height of the container */
+    transition: width 0.5s ease-in-out; /* Smooth transition for width change */
+  }
+  
+  /* Ensure the container has enough space at the bottom */
+  .tapper-container {
+    padding-bottom: 15%; /* Adjust based on your navbar's height */
+  }
+  
+  .coin-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  .coin-button:active {
+    animation: tapEffect 0.5s ease-out forwards;
+  } 
+  
+  @keyframes tapEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.8); }
+    100% { transform: scale(1); }
+  }
+  .energy-svg {
+    position: absolute;  
+    z-index: 110; 
+    overflow: hidden;
+  }
+  
