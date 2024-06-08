@@ -20,9 +20,10 @@ export default function Tapper() {
   const monsterRef = useRef(null);
   const [tapCount, setTapCount] = useState(0);
   const [energyCost, setEnergyCost] = useState(user.energyCost); // Cost of each tap to user energy
-  const [autoTapEnergyCost, setAutoTapEnergyCost] = useState(
-    userEnergy / 100
-  ); // Cost of each tap to user energy
+  const [autoTapEnergyCost, setAutoTapEnergyCost] = useState(user.autoTapEnergyCost); // Cost of each auto tap to user energy 
+  const [coinAnimations, setCoinAnimations] = useState([]);
+
+
 
   useEffect(() => {
     let interval;
@@ -42,47 +43,66 @@ export default function Tapper() {
     return () => clearInterval(interval); // Clean up interval
 }, [animations, userEnergy, userMaxEnergy]);
 
-  const handleTap = () => {
+  const handleTap = (event) => {
     if (isAutoTapping) return; // Prevent manual taps during auto tapping
+    const { clientX, clientY } = event; // Get tap coordinates
+    
+    window.requestAnimationFrame(() => {
+
     if (userEnergy >= energyCost) {
       setUserEnergy((prev) => prev - energyCost);
       setMonsterEnergy((prev) => Math.max(prev - energyCost, 0));
       //   setTapCount(prev => prev + 1);  // Increment tap count
-      if (isAutoTapping) {
-        setTimeout(() => {
-          setCoins((prev) => prev + energyCost);
-        }, i * 100);
-      } else {
+       
         for (let i = 0; i < energyCost; i++) {
           setTimeout(() => {
             setCoins((prev) => prev + 1);
           }, i * 100); // Adding 1 coin every 100 ms for a total of 5 coins
         }
-      }
+       
       let newAnimation;
-      // Create animations from 5 different parts of the monster
+      // // Create animations from 5 different parts of the monster
 
-      newAnimation = {
+      // newAnimation = {
+      //   id: uuidv4(),
+      //   x: monsterRef.current.offsetLeft + monsterRef.current.clientWidth / 2,
+      //   y: monsterRef.current.offsetTop + monsterRef.current.clientHeight / 2,
+      // };
+      if (!monsterRef.current) return; // Guard clause if the ref is not attached
+
+      // Get the bounding rectangle of the element
+      const rect = monsterRef.current.getBoundingClientRect();
+  
+      // Calculate tap coordinates relative to the element
+      const x = event.clientX - rect.left; // x position within the element.
+      const y = event.clientY - 80;  // y position within the element.
+  
+     
+       newAnimation = {
         id: uuidv4(),
-        x: monsterRef.current.offsetLeft + monsterRef.current.clientWidth / 2,
-        y: monsterRef.current.offsetTop + monsterRef.current.clientHeight / 2,
+        x: x, // Adjusted for the center of a small icon if needed
+        y: y,
       };
+
       setAnimations((current) => [...current, newAnimation]);
 
       setTimeout(() => {
         setAnimations((current) =>
           current.filter((anim) => anim.id !== newAnimation.id)
         );
-      }, 1000);
+      }, 3000);
     }
+
+  });
   };
 
   const handleAutoTap = () => {
-    if (isAutoTapping) return; // Prevent manual taps during auto tapping
     if (userEnergy >= autoTapEnergyCost) {
+    
       setUserEnergy((prev) => prev - autoTapEnergyCost);
-      setMonsterEnergy((prev) => Math.max(prev - autoTapEnergyCost, 0));
-      setTapCount((prev) => prev + 1); // Increment tap count
+      // setMonsterEnergy((prev) => Math.max(prev - autoTapEnergyCost, 0));
+      // setTapCount((prev) => prev + 1); // Increment tap count
+    
       for (let i = 0; i < autoTapEnergyCost; i++) {
         setTimeout(() => {
           setCoins((prev) => prev + 5);
@@ -103,6 +123,8 @@ export default function Tapper() {
         );
       }, 1000);
     }
+
+
   };
 
   const activateAutoTapper = () => {
@@ -112,7 +134,32 @@ export default function Tapper() {
     }
     setIsAutoTapping(true);
 
-    const interval = setInterval(handleAutoTap, 100); // Simulate tap every 22.5ms to achieve 2000 taps in 45 seconds
+    const interval2 = setInterval(() => {
+      // Your existing logic here
+      // Additionally, trigger new coin animations
+      let opacity = Math.random(); // Random opacity for each coin
+      let newCoin = {
+        id: uuidv4(),
+        style: {
+          animationDuration: `${2 + Math.random()}s`, // Random duration between 2 and 3 seconds
+          opacity: opacity,
+          bottom: `${Math.random() * 50 - Math.random() * 20}%`, // Random bottom from 0% to 20%
+          right: `${Math.random() * 100}%`, // Random bottom from 0% to 20%
+          left: `${Math.random() * 100}%` // Random bottom from 0% to 20%
+          
+        }
+      };
+      setCoinAnimations(prev => [...prev, newCoin]);
+    }, 31);
+
+    setTimeout(() => {
+      clearInterval(interval2);
+      setIsAutoTapping(false);
+      setCoinAnimations([]); // Clear coin animations
+    }, 11000); // Duration of auto tapping
+
+    const interval = setInterval(handleAutoTap, 100); // Simulate tap every 100ms to achieve 2000 taps in 45 seconds
+    
     setTimeout(() => {
       clearInterval(interval);
       setIsAutoTapping(false);
@@ -131,6 +178,13 @@ export default function Tapper() {
       {/* <button onClick={handleSetToDefault} className="text-white ">
         Set to Default User
       </button> */}
+      {coinAnimations.map(coin => (
+        <div
+          key={coin.id}
+          className="coin-flow"
+          style={coin.style}
+        />
+      ))}
       <div className="flex text-3xl text-white score ">
         <span className="pr-1 z-1000">
           <img src={images.goldcoin} width="50" height="50" />
@@ -172,8 +226,8 @@ export default function Tapper() {
               onClick={activateAutoTapper}
               disabled={isAutoTapping}
         >
-          <img src={images.rocket} alt="Boost" width="30" height="30" className="mr-3" /> {/* Assuming there's a Boost icon */}
-          {isAutoTapping? "Tapping": "Auto tap"}
+          <img src={images.rocket} alt="Boost" width="30" height="30" className="mr-1" /> {/* Assuming there's a Boost icon */}
+          {isAutoTapping? "Tapping": "Swift"}
         </div>
       </div>
 

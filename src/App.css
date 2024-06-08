@@ -173,6 +173,11 @@
   align-items: center; /* Ensure vertical alignment is centered */
   margin-left: 20px;
   margin-right: 22px;
+  padding: 8px 10px; /* Padding around the icons for better spacing */
+  border-radius: 20px; /* Rounded corners */
+  /* background-color: #34495e; Slightly lighter background than the status bar */
+  border: 2px solid rgb(34, 125, 190); /* Gold border */
+  text-transform: uppercase;
 }
 
 .energy-status .right-icon {
@@ -189,12 +194,21 @@
 }
 
 @keyframes flowUpsideDown {
-  0% {
+  /* 0% {
     transform: translateY(0);
     opacity: 1;
   }
   100% {
     transform: translateY(-50px);
+    opacity: 0;
+  } */
+
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh);  /* Moves the coin from bottom to above the screen */
     opacity: 0;
   }
 }
@@ -229,6 +243,34 @@
  overflow: hidden;
 }
  
+@keyframes flowCoins {
+  0% { transform: translateY(100%); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
+.coin-flow {
+  position: fixed;
+  bottom: 0;
+  /* left: 50%; */
+  width: 44px; /* Adjust size as needed */
+  height: 44px; /* Adjust size as needed */
+  background-image: url('/src/assets/coins/orange-coin.png');
+  background-size: cover;
+  animation: flowUpsideDown 3s ease-in-out forwards;
+  z-index: 1000;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .gradient1 {
   background: #f953c6; /* fallback for old browsers */
