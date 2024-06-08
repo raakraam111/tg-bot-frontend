@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import images from "../constants/images";
 import { v4 as uuidv4 } from "uuid";
@@ -16,97 +15,110 @@ export default function Tapper() {
   const [monsterEnergy, setMonsterEnergy] = useState(user.monsterEnergy); // Monster also starts with full energy
   const [animations, setAnimations] = useState([]);
   const [isAutoTapping, setIsAutoTapping] = useState(false);
-  const [isAutoTapSubscribed, setIsAutoTapSubscribed] = useState(user.isAutoTapSubscribed);
+  const [isAutoTapSubscribed, setIsAutoTapSubscribed] = useState(
+    user.isAutoTapSubscribed
+  );
   const monsterRef = useRef(null);
   const [tapCount, setTapCount] = useState(0);
   const [energyCost, setEnergyCost] = useState(user.energyCost); // Cost of each tap to user energy
-  const [autoTapEnergyCost, setAutoTapEnergyCost] = useState(user.autoTapEnergyCost); // Cost of each auto tap to user energy 
+  const [autoTapEnergyCost, setAutoTapEnergyCost] = useState(
+    user.autoTapEnergyCost
+  ); // Cost of each auto tap to user energy
   const [coinAnimations, setCoinAnimations] = useState([]);
-
-
 
   useEffect(() => {
     let interval;
     if (!animations.length && userEnergy < userMaxEnergy) {
-        interval = setInterval(() => {
-            setUserEnergy(prevEnergy => {
-                if (prevEnergy < userMaxEnergy) {
-                    return Math.min(prevEnergy + energyCost, userMaxEnergy); // Increment energy
-                } else {
-                    clearInterval(interval); // Stop interval when max energy is reached
-                    return userMaxEnergy; // Ensure energy does not exceed max
-                }
-            });
-        }, 300 ); // Refill energy every 1 second
+      interval = setInterval(() => {
+        setUserEnergy((prevEnergy) => {
+          if (prevEnergy < userMaxEnergy) {
+            return Math.min(prevEnergy + energyCost, userMaxEnergy); // Increment energy
+          } else {
+            clearInterval(interval); // Stop interval when max energy is reached
+            return userMaxEnergy; // Ensure energy does not exceed max
+          }
+        });
+      }, 300); // Refill energy every 1 second
     }
 
     return () => clearInterval(interval); // Clean up interval
-}, [animations, userEnergy, userMaxEnergy]);
+  }, [animations, userEnergy, userMaxEnergy]);
 
   const handleTap = (event) => {
     if (isAutoTapping) return; // Prevent manual taps during auto tapping
     const { clientX, clientY } = event; // Get tap coordinates
-    
-    window.requestAnimationFrame(() => {
 
-    if (userEnergy >= energyCost) {
-      setUserEnergy((prev) => prev - energyCost);
-      setMonsterEnergy((prev) => Math.max(prev - energyCost, 0));
-      //   setTapCount(prev => prev + 1);  // Increment tap count
-       
+    window.requestAnimationFrame(() => {
+      
+      if (monsterRef.current) {
+        monsterRef.current.style.transform = `scale(1.05)`;
+        setTimeout(() => {
+          monsterRef.current.style.transform = "";
+        }, 150); // Quick reset to normal after slight scale up
+      }
+      
+      if (userEnergy >= energyCost) {
+        setUserEnergy((prev) => prev - energyCost);
+        setMonsterEnergy((prev) => Math.max(prev - energyCost, 0));
+        //   setTapCount(prev => prev + 1);  // Increment tap count
+
         for (let i = 0; i < energyCost; i++) {
           setTimeout(() => {
             setCoins((prev) => prev + 1);
           }, i * 100); // Adding 1 coin every 100 ms for a total of 5 coins
         }
-       
-      let newAnimation;
-      // // Create animations from 5 different parts of the monster
 
-      // newAnimation = {
-      //   id: uuidv4(),
-      //   x: monsterRef.current.offsetLeft + monsterRef.current.clientWidth / 2,
-      //   y: monsterRef.current.offsetTop + monsterRef.current.clientHeight / 2,
-      // };
-      if (!monsterRef.current) return; // Guard clause if the ref is not attached
+        let newAnimation;
+        // // Create animations from 5 different parts of the monster
 
-      // Get the bounding rectangle of the element
-      const rect = monsterRef.current.getBoundingClientRect();
-  
-      // Calculate tap coordinates relative to the element
-      const x = event.clientX - rect.left; // x position within the element.
-      const y = event.clientY - 80;  // y position within the element.
-  
-     
-       newAnimation = {
-        id: uuidv4(),
-        x: x, // Adjusted for the center of a small icon if needed
-        y: y,
-      };
+        // newAnimation = {
+        //   id: uuidv4(),
+        //   x: monsterRef.current.offsetLeft + monsterRef.current.clientWidth / 2,
+        //   y: monsterRef.current.offsetTop + monsterRef.current.clientHeight / 2,
+        // };
+        if (!monsterRef.current) return; // Guard clause if the ref is not attached
 
-      setAnimations((current) => [...current, newAnimation]);
+        // Get the bounding rectangle of the element
+        const rect = monsterRef.current.getBoundingClientRect();
 
-      setTimeout(() => {
-        setAnimations((current) =>
-          current.filter((anim) => anim.id !== newAnimation.id)
-        );
-      }, 3000);
-    }
+        // Calculate tap coordinates relative to the element
+        const x = event.clientX - rect.left; // x position within the element.
+        const y = event.clientY - 80; // y position within the element.
 
-  });
+        newAnimation = {
+          id: uuidv4(),
+          x: x, // Adjusted for the center of a small icon if needed
+          y: y,
+        };
+
+        setAnimations((current) => [...current, newAnimation]);
+
+        setTimeout(() => {
+          setAnimations((current) =>
+            current.filter((anim) => anim.id !== newAnimation.id)
+          );
+        }, 3000);
+      }
+    });
   };
 
   const handleAutoTap = () => {
     if (userEnergy >= autoTapEnergyCost) {
-    
       setUserEnergy((prev) => prev - autoTapEnergyCost);
       // setMonsterEnergy((prev) => Math.max(prev - autoTapEnergyCost, 0));
       // setTapCount((prev) => prev + 1); // Increment tap count
-    
+
       for (let i = 0; i < autoTapEnergyCost; i++) {
         setTimeout(() => {
           setCoins((prev) => prev + 5);
         }, i * 100); // Adding 1 coin every 100 ms for a total of 5 coins
+      }
+      
+      if (monsterRef.current) {
+        monsterRef.current.style.transform = `scale(1.05)`;
+        setTimeout(() => {
+          monsterRef.current.style.transform = "";
+        }, 150); // Quick reset to normal after slight scale up
       }
 
       const newAnimation = {
@@ -123,8 +135,6 @@ export default function Tapper() {
         );
       }, 1000);
     }
-
-
   };
 
   const activateAutoTapper = () => {
@@ -145,11 +155,10 @@ export default function Tapper() {
           opacity: opacity,
           bottom: `${Math.random() * 50 - Math.random() * 20}%`, // Random bottom from 0% to 20%
           right: `${Math.random() * 100}%`, // Random bottom from 0% to 20%
-          left: `${Math.random() * 100}%` // Random bottom from 0% to 20%
-          
-        }
+          left: `${Math.random() * 100}%`, // Random bottom from 0% to 20%
+        },
       };
-      setCoinAnimations(prev => [...prev, newCoin]);
+      setCoinAnimations((prev) => [...prev, newCoin]);
     }, 31);
 
     setTimeout(() => {
@@ -159,7 +168,7 @@ export default function Tapper() {
     }, 11000); // Duration of auto tapping
 
     const interval = setInterval(handleAutoTap, 100); // Simulate tap every 100ms to achieve 2000 taps in 45 seconds
-    
+
     setTimeout(() => {
       clearInterval(interval);
       setIsAutoTapping(false);
@@ -178,12 +187,8 @@ export default function Tapper() {
       {/* <button onClick={handleSetToDefault} className="text-white ">
         Set to Default User
       </button> */}
-      {coinAnimations.map(coin => (
-        <div
-          key={coin.id}
-          className="coin-flow"
-          style={coin.style}
-        />
+      {coinAnimations.map((coin) => (
+        <div key={coin.id} className="coin-flow" style={coin.style} />
       ))}
       <div className="flex text-3xl text-white score ">
         <span className="pr-1 z-1000">
@@ -192,7 +197,7 @@ export default function Tapper() {
         {coins && coins.toLocaleString()}
       </div>
       <img
-        src={images.c1}
+        src={images.c4}
         alt="Coin"
         className="monster-icon"
         onClick={handleTap}
@@ -217,24 +222,31 @@ export default function Tapper() {
       {/* <div className="coin-count font-bold  text-white py-2">
         Coins: {coins.toLocaleString()}
       </div> */}
-     <div className="energy-status text-white">
+      <div className="energy-status text-white">
         <div className="left-icon">
           <img src={images.thunder} alt="Thunder" width="30" height="30" />
           {userEnergy}/{userMaxEnergy}
-          </div>
-        <div className="right-icon"
-              onClick={activateAutoTapper}
-              disabled={isAutoTapping}
+        </div>
+        <div
+          className="right-icon"
+          onClick={activateAutoTapper}
+          disabled={isAutoTapping}
         >
-          <img src={images.rocket} alt="Boost" width="30" height="30" className="mr-1" /> {/* Assuming there's a Boost icon */}
-          {isAutoTapping? "Tapping": "Swift"}
+          <img
+            src={images.rocket}
+            alt="Boost"
+            width="30"
+            height="30"
+            className="mr-1"
+          />{" "}
+          {/* Assuming there's a Boost icon */}
+          {isAutoTapping ? "Tapping" : "Swift"}
         </div>
       </div>
 
-     {/*   <div className="energy-status font-bold text-black py-2">
+      {/*   <div className="energy-status font-bold text-black py-2">
         Monster Energy: {monsterEnergy}
       </div> */}
-      
     </div>
   );
 }
