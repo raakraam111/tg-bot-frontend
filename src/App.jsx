@@ -9,8 +9,6 @@ import TaskPage from "./pages/TaskPage";
 import TapPage from "./pages/TapPage";
 import BoostPage from "./pages/BoostPage";
 import StatsPage from "./pages/StatsPage";
-import NavigationBar from "./components/NavigationBar"; // Ensure this has proper styling
-import { menuItems } from "./constants/constants";
 import TgDownload from './components/TgDownload';
 import "./App.css";
 
@@ -38,9 +36,7 @@ function App() {
               <Route path="/stats" element={<StatsPage />} />
               <Route path="/" element={<TapPage />} />
             </Switch>
-            <div className="navbar">
-              <NavigationBar items={menuItems} />
-            </div>
+            
           </>
        ) : (
           <div className="content">

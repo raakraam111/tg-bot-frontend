@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
+    "@tanstack/react-query": "^5.40.1",
+    "@web3modal/wagmi": "^4.2.3",
+    "dotenv": "^16.4.5",
     "qrcode": "^1.5.3",
     "qrcode-generator": "^1.4.4",
     "qrcode.react": "^3.1.0",
@@ -21,7 +24,9 @@
     "react-router-dom": "^6.23.1",
     "redux": "^5.0.1",
     "sharp": "^0.33.4",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "viem": "^2.13.7",
+    "wagmi": "^2.9.10"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

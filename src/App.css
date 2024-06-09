@@ -26,13 +26,9 @@
 .content {
   position: relative;
   top: 7%;
-  z-index: 1;  
-  background: #010314;  
-  background: -webkit-linear-gradient(
-    to right,
-    #004e92,
-    #000428
-  );  
+  z-index: 1;
+  background: #010314;
+  background: -webkit-linear-gradient(to right, #004e92, #000428);
   background: linear-gradient(to right, #004e92, #000428);
   border-radius: 70px 70px 0 0;
   height: 93vh;
@@ -132,6 +128,7 @@
   font-size: 48px;
   cursor: pointer;
   z-index: 15; /* Ensure it's above the overlay */
+  margin-bottom: 2rem;
 }
 
 .coin-animation {
@@ -168,26 +165,26 @@
   overflow: hidden;
 }
 
-.energy-status .left-icon, .energy-status .right-icon {
+.energy-status .left-icon,
+.energy-status .right-icon {
   display: flex;
   align-items: center; /* Ensure vertical alignment is centered */
   margin-left: 20px;
   margin-right: 22px;
-  padding: 8px 10px; /* Padding around the icons for better spacing */
-  border-radius: 20px; /* Rounded corners */
+  /* padding: 8px 10px; /* Padding around the icons for better spacing */
+  /* border-radius: 20px; Rounded corners */ 
   /* background-color: #34495e; Slightly lighter background than the status bar */
-  border: 2px solid rgb(34, 125, 190); /* Gold border */
+  /* border: 2px solid rgb(34, 125, 190); Gold border */
   text-transform: uppercase;
 }
 
 .energy-status .right-icon {
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 .energy-status .left-icon {
   justify-content: flex-start; /* Pushes content to the right */
 }
-
 
 .tapmaster-animation {
   animation: flowUpsideDown 1s infinite;
@@ -208,7 +205,9 @@
     opacity: 1;
   }
   to {
-    transform: translateY(-100vh);  /* Moves the coin from bottom to above the screen */
+    transform: translateY(
+      -100vh
+    ); /* Moves the coin from bottom to above the screen */
     opacity: 0;
   }
 }
@@ -228,6 +227,7 @@
 
 .game-container {
   /* position: relative; */
+  top:20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,13 +240,21 @@
   box-shadow: 0 0 20px 4px rgba(255, 255, 224, 0.6);
   width: 100%; /* Make sure it fills the container width */
   height: 100%; /* Make sure it also fills the container height */
- overflow: hidden;
+  overflow: hidden;
 }
- 
+
 @keyframes flowCoins {
-  0% { transform: translateY(100%); opacity: 0; }
-  50% { opacity: 0.5; }
-  100% { transform: translateY(-100%); opacity: 0; }
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
 }
 
 .coin-flow {
@@ -255,11 +263,50 @@
   /* left: 50%; */
   width: 44px; /* Adjust size as needed */
   height: 44px; /* Adjust size as needed */
-  background-image: url('/src/assets/coins/orange-coin.png');
+  background-image: url("/src/assets/coins/orange-coin.png");
   background-size: cover;
   animation: flowUpsideDown 3s ease-in-out forwards;
   z-index: 1000;
 }
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 10px;
+  /* background-color: #0b8793; */
+  width: 100%;
+}
+
+.data-item {
+  flex: 1 1 calc(33.3% - 24px); /* Grow to fill the space, 'calc' for 3 per row considering margin */
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid #38766d;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px; /* Minimum width of each item */
+  max-width: 300px; /* Maximum width of each item */
+}
+
+
+.description {
+  font-size: 12px; /* Small text size for descriptions */
+  color: #f9ecec; /* Dark grey text color */
+}
+
+.value {
+  font-size: 18px; /* Larger text size for values */
+  font-weight: bold; /* Bold font weight for values */
+  color: #ffffff; /* Darker text color */
+  margin-top: 10px; /* Space between description and value */
+}
+
+
+
+
 
 
 

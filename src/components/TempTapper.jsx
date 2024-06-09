@@ -6,7 +6,10 @@ import { changeUserData } from "../store/slices/userSlice";
 import { defaultUserData } from "../constants/constants";
 import DataDisplay from "./DataDisplay";
 
-export default function Tapper() {
+import NavigationBar from "../components/NavigationBar";
+import { menuItems } from "../constants/constants";
+
+export default function TempTapper() {
   const dispatch = useDispatch();
   const [user, setUser] = useState(defaultUserData);
   const [coins, setCoins] = useState(user.coins);
@@ -190,7 +193,7 @@ export default function Tapper() {
   ];
 
   return (
-     <>
+    <div className="game-container">
       {/* <button onClick={handleSetToDefault} className="text-white ">
         Set to Default User
       </button> */}
@@ -200,7 +203,7 @@ export default function Tapper() {
       ))}
 
 
-      <div className="flex text-3xl text-white score ">
+      <div className="flex text-3xl text-white score z-1000">
         <span className="pr-1 ">
           <img src={images.goldcoin} width="50" height="50" />
         </span>
@@ -264,10 +267,9 @@ export default function Tapper() {
         Monster Energy: {monsterEnergy}
       </div> */}
 
-    {/* <div className="navbar">
-              <NavigationBar items={menuItems} />
+    <div className="navbar">
+       <NavigationBar items={menuItems} />
     </div>
-    </div> */}
-    </>
+    </div>
   );
 }

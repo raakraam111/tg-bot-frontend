@@ -1,13 +1,12 @@
 import React from "react";
+import Tapper from "../components/Tapper";
+import NavBarWrapper from "../components/NavBarWrapper";
 
 const BoostPage = () => {
   return (
-    <div className="container">
-    <div className="content">
-      <div className="overlay "></div>
-      BoostPage
-    </div>
-  </div>
+    <NavBarWrapper>
+      <Tapper />
+    </NavBarWrapper> 
   );
 };
 
