@@ -3,11 +3,11 @@ import React from "react";
 import NavigationBar from "./NavigationBar";
 import { menuItems } from "../constants/constants";
 
-const NavBarWrapper = ({ children }) => {
-  return (
-    <div className="container">
-      <div className="content">
-        <div className="game-container">
+const NavBarScrollable = ({ children }) => {
+  return (  
+    <div className="container scrollable height-100">
+      <div className="content scrollable height-100 scroll-bg">
+        <div className="game-container-scrollable">
           {children}
           <div className="navbar">
             <NavigationBar items={menuItems} />
@@ -18,4 +18,4 @@ const NavBarWrapper = ({ children }) => {
   );
 };
 
-export default NavBarWrapper;
+export default NavBarScrollable;

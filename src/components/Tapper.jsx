@@ -240,7 +240,7 @@ export default function Tapper() {
       </div> */}
       <div className="energy-status text-white  z-1000">
         <div className="left-icon">
-          <img src={images.energy} alt="Thunder" width="30" height="30" />
+          <img src={images.thunder} alt="Thunder" width="30" height="30" />
           {userEnergy}/{userMaxEnergy}
         </div>
         <div

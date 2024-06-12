@@ -1,13 +1,12 @@
 import React from "react";
 import Tapper from "../components/Tapper";
-import NavBarWrapper from "../components/NavBarWrapper";
-
+import NavBar from "../components/NavBar";
 
 const TapPage = () => {
   return (
-      <NavBarWrapper>
+      <NavBar>
          <Tapper />
-      </NavBarWrapper> 
+      </NavBar> 
   );
 };
 

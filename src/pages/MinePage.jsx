@@ -1,7 +1,7 @@
 import React from "react";
 import images from "../constants/images";
 import { FullWidthCard } from "../components/FullWidthCard";
-import NavBarWrapper from "../components/NavBarWrapper";
+import NavBarScrollable from "../components/NavBarScrollable";
 
 const MinePage = () => {
   const cardsData = [
@@ -27,7 +27,7 @@ const MinePage = () => {
   ];
   const coins = 7.43e5;
   return (
-    <NavBarWrapper>
+    <NavBarScrollable>
       
       {cardsData.map((card, index) => (
         <div
@@ -48,7 +48,7 @@ const MinePage = () => {
           />
         </div>
       ))}
-    </NavBarWrapper>
+    </NavBarScrollable>
   );
 };
 

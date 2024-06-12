@@ -1,6 +1,6 @@
 import React from "react";
 import Tapper from "../components/Tapper";
-import NavBarWrapper from "../components/NavBarWrapper";
+import NavBarWrapper from "../components/NavBar";
 
 const BoostPage = () => {
   return (
