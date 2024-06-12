@@ -4,7 +4,7 @@ import {
   Route,
   Routes as Switch,
 } from 'react-router-dom';
-import ReferralsPage from "./pages/ReferralsPage";
+import MinePage from "./pages/MinePage";
 import TaskPage from "./pages/TaskPage";
 import TapPage from "./pages/TapPage";
 import BoostPage from "./pages/BoostPage";
@@ -14,7 +14,7 @@ import "./App.css";
 
 
 function App() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     function handleResize() {
@@ -29,7 +29,7 @@ function App() {
        {isMobile ? (
           < >
             <Switch>
-              <Route path="/referrals" element={<ReferralsPage />} />
+              <Route path="/mine" element={<MinePage />} />
               <Route path="/task" element={<TaskPage />} />
               <Route path="/tap" element={<TapPage />} />
               <Route path="/boosters" element={<BoostPage />} />

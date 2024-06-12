@@ -5,8 +5,8 @@ const DataDisplay = ({ items }) => {
     <div className="items-container">
       {items.map((item, index) => (
         <div key={index} className="data-item">
-          <p className="description">{item.description}</p>
-          <p className="value">{item.value}</p>
+          <p className="description font-bold">{item.description}</p>
+          <p className="value text-blue-400 ">{item.value}</p>
         </div>
       ))} 
     </div>

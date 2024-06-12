@@ -5,7 +5,7 @@ import { menuItems } from "../constants/constants";
 
 const NavBarWrapper = ({ children }) => {
   return (
-    <div className="container   13456891112131415 2710">
+    <div className="container">
       <div className="content">
         <div className="game-container">
           {children}

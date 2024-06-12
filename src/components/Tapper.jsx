@@ -184,9 +184,9 @@ export default function Tapper() {
   };
 
   const dataItems = [
-    { description: 'Temperature', value: '22°C' },
-    { description: 'Humidity', value: '68%' },
-    { description: 'Pressure', value: '1013 hPa' },
+    { description: 'Earn per tap', value: "+"+ energyCost },
+    { description: 'Coins to Levelup', value: '100K' },
+    { description: 'ROI per hour', value: '23.3K' },
   ];
 
   return (
@@ -194,15 +194,15 @@ export default function Tapper() {
       {/* <button onClick={handleSetToDefault} className="text-white ">
         Set to Default User
       </button> */}
-      <DataDisplay items={dataItems} />
+      {/* <DataDisplay items={dataItems} /> */}
       {coinAnimations.map((coin) => (
         <div key={coin.id} className="coin-flow" style={coin.style} />
       ))}
 
 
-      <div className="flex text-3xl text-white score ">
+      <div className="flex text-3xl score ">
         <span className="pr-1 ">
-          <img src={images.goldcoin} width="50" height="50" />
+          <img src={images.usd1} width="50" height="50" />
         </span>
         {coins && coins.toLocaleString()}
       </div>
