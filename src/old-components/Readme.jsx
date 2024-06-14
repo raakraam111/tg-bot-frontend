@@ -1,6 +1,8 @@
 
 // Name - Upside vault
 
+import { split } from "postcss/lib/list"
+
 // Main features - 
 
 // ----- Monster
@@ -37,9 +39,55 @@
 // Basically a tapping game where user can tap on the MONSTER to kill and get chest rewards after. The rewards will be in the form of mini coins. The user can use these coins to buy weapons, armors, and other stuff to kill the monsters. The user can also upgrade the weapons and armors to kill the monsters faster.
 // there will be 100 plus levels and each level will have different monsters and different rewards. The user can also buy coins with real money to buy weapons and armors.
 // The user can also invite friends to play the game and get rewards for it. The user can also watch ads to get rewards. The user can also get rewards by completing daily tasks and challenges.
+ 
+// Upside vault Pitch deck
+// 1. Introduction
+// Upside vault is a combination of different crypto / blockchain products with the theme of stranger things and money heist web series. The initial version of it is a mini app on telegram with over 30 levels where there will be different monsters in each level.
+// 2. Current trend
+// Telegram mini apps are a trend these days and people are loving it. The tapping games are trending like hell.
+// Not coin - Listed on binance
+// Hamster Kombat - 100M tappers in 2 months
+// Tapswap - 10M users in 1 month
 
-// -- Prompt--
-// So I need you to create images for the monsters and chest 
-// One image should have 4 columns 3 columns for the monster being happy, sad, fainted and 1 column for the chest
-// I need 100 images for the monsters and 1 image for the chest
-// I will ask one by one for the images and you can create them and send them to me.
+// 3. Business Model
+// Business model is simple, the user can join for free and start tapping and receive coins and can upgrade with real money or ingame assets to upgrade weapons and armors. The user can also invite friends to play the game and get rewards for it.  
+// 4. Marketing and Sales Strategy
+// We will be using telegram ads, google ads, facebook ads, and influencer marketing to promote the game. We will also be using referral marketing to get more users.
+// 
+// 5. Competition
+// Our competition is with other tapping games like Not coin, Hamster Kombat, Tapswap, etc. We are different from them because of our theme and storyline.
+
+// Our competition is with other tapping games like Not coin, Hamster Kombat, Tapswap, etc. We are different from them because of our theme and storyline.
+// 6. Revenue Model
+// a. In-app purchases
+// b. PR Media services
+// c. P2E game
+// d. P2P trading
+// e. Launchpad
+
+// 7. Revenue Projections
+// We are expecting to have 1M users in 6 months and 10M users in 1 year. 
+// One Year Projection
+// Median Revenue - $1M
+// Maximum Revenue - $10M
+// Minimum Revenue - $100K
+
+// Revenue from
+// 1.PR Media services
+// Telegram PR media channel - 1k usd per day - 20k usd per month - 240k usd per year
+// Youtube  PR media channel - 2k usd per week - 8k usd per month - 96k usd per year
+// Facebook PR media channel - 1k usd per day - 20k usd per month - 240k usd per year
+// Instagram PR media channel - 1k usd per day - 20k usd per month - 240k usd per year
+// Twitter PR media channel - 1k usd per day - 20k usd per month - 240k usd per year
+// SubTotal - 1.1M usd per year
+
+// 2. In app purchases
+// 1M users - 5% conversion rate - 50k users - 10 usd per user - 500k usd
+
+// 3. P2P trading
+// withdrawal fees - 1 usd per transaction - 10k transactions per day - 300k usd per month - 3.6M usd per year
+
+// 4. Launchpad
+// 500 projects - 10k usd per project - 5M usd
+
+// Total Revenue - 10.2M usd per year

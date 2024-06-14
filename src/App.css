@@ -10,7 +10,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* This is critical */
+  background-color: #051c3d; /* Set the default background color */
+  background: linear-gradient(to right, #004e92, #000428);
+}
 .container {
   position: relative;
   height: 100vh;
@@ -21,25 +27,30 @@
   background-color: #051c3d;
   background-size: cover;
   background-position: center;
+  overflow-y: hidden;
 }
 
 .content {
   position: relative;
   z-index: 1;
   background: #010314;
+  box-shadow: 0 0 40px 10px rgba(255, 255, 224, 0.6);
   
 }
+
 .round-edges {
   background: -webkit-linear-gradient(to right, #004e92, #000428);
   background: linear-gradient(to right, #004e92, #000428);
   border-radius: 70px 70px 0 0;
  }
+
  .scroll-bg {
   background: -webkit-linear-gradient(to right, #004e92, #000428);
   background: linear-gradient(to right, #004e92, #000428);
  
  }
-.navbar {
+
+ .navbar {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -98,8 +109,8 @@
 .height-93vh {
   height: 93vh;
 }
-.top-7percent {
-  top: 7%;
+.top-2percent {
+  top: 2%;
 }
 
 .non-scrollable {
@@ -151,7 +162,7 @@
   font-size: 48px;
   cursor: pointer;
   z-index: 15; /* Ensure it's above the overlay */
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .coin-animation {
@@ -176,7 +187,7 @@
 
 .energy-status {
   position: relative; /* Position it relative to the nearest positioned ancestor */
-  bottom: 10%; /* 10% from the bottom */
+  bottom: 12%; /* 10% from the bottom */
   padding: 2px;
   color: white; /* Text color */
   font-weight: bold;
@@ -258,13 +269,38 @@
   background-size: cover;
   background-position: center;
   transition: background-image 0.3s ease-in-out;
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 70px 70px 0 0;
   box-shadow: 0 0 20px 4px rgba(255, 255, 224, 0.6);
   width: 100%; /* Make sure it fills the container width */
   height: 100%; /* Make sure it also fills the container height */
   overflow: hidden;
+  /* background: radial-gradient(circle, rgba(255, 255, 0, 0.6), rgba(255, 255, 0, 0) 70%); */
+  /* background-image: url("/src/assets/bg/2.png");
+  background-repeat: no-repeat;   
+  background-position: center 10px; */
+
 }
+.progress-bar-background {
+  /* padding: 15px;  */
+  margin: 15px; 
+  width: 90%;
+  left:5%;
+  height: 10px;
+  background-color: #4e1111; /* Fallback color */
+  border-radius: 10px;
+  overflow: hidden; /* Ensures the inner bar does not overflow */
+}
+
+.progress-bar {
+  height: 100%;
+  /* background: linear-gradient(to right, lightgreen, pink, blue); */
+  border-radius: 10px;
+  transition: width 0.3s ease-in-out;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  }
+
 .game-container-scrollable {
   /* position: relative; */
   top:20%;
@@ -343,6 +379,102 @@
   color: #ffffff; /* Darker text color */
   margin-top: 10px; /* Space between description and value */
 }
+.card {
+  background-color: #270404;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: transform 0.2s;
+  margin-bottom: 10px;
+}
+
+
+.card:hover {
+  transform: translateY(-5px); /* Slight raise effect on hover */
+}
+
+.card img {
+  width: 50px;
+  height: 50px; /* Fixed size for icons */
+  align-self: center; /* Center the icon in the card */
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color:yellow;
+  margin-top: 10px;
+  text-align: center; /* Center title text */
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #f3eded;
+  margin-top: 5px;
+  text-align: center; /* Center description text */
+}
+
+.card-progress {
+  background-color: #eee;
+  border-radius: 5px;
+  height: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  /* background: rgba(0, 0, 0, 0.5); Optional: visibility improvement */
+  color: white;
+  font-size: 1.2rem;
+}
+
+.user-info, .level-info {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+.user-info {
+  margin-left: 10px; /* Space from the left edge */
+}
+
+.level-info {
+  margin-right: 10px; /* Space from the right edge */
+}
+.card-progress-bar {
+  background-color: #4CAF50;
+  height: 100%;
+  border-radius: 5px;
+}
+ 
+.three-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjusts spacing around items */
+  align-items: stretch; /* Optional: Ensures that items of a row are the same height */
+}
+.two-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjusts spacing around items */
+  align-items: stretch; /* Optional: Ensures that items of a row are the same height */
+}
+
+@media (min-width: 480px) { /* Adjust this breakpoint based on your specific design requirements */
+  .three-cards-container .card {
+      flex: 0 0 31%; /* Three cards per row */
+      margin-bottom: 20px; /* Adds margin around each card */
+  }
+  .two-cards-container .card {
+    flex: 0 0 48%; /* Two cards per row with a little space between */
+    margin-bottom: 20px; /* Adds margin around each card */
+  }
+}
 
 .full-width-card {
   display: flex;
@@ -407,6 +539,16 @@
   padding-bottom: 30px;
 }
 
+/* MinePage Heading */
+.mine-page-heading {
+  color: #FFF; /* White text color for visibility */
+  font-size: 2rem; /* Large font size for emphasis */
+  font-weight: bold; /* Bold font weight for importance */
+  padding-top: 20px; /* Top padding to distance from other content */
+  text-align: center; /* Center the text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for depth and readability */
+  margin-bottom: 30px; /* Space below the heading */
+}
 
 
 

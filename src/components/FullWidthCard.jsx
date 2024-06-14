@@ -1,5 +1,6 @@
 import React from 'react';
 import images from '../constants/images';
+import { FaArrowRight } from 'react-icons/fa';
 
 export const FullWidthCard = ({ icon, label, progress }) => {
   return (
@@ -11,9 +12,13 @@ export const FullWidthCard = ({ icon, label, progress }) => {
           {/* <div className='fullwidth-card-progress'>{progress}</div> */}
         </div>
       </div>
-      <button>
+      {/* <button>
         <img src={images.rightArrow} alt="right arrow" />
-      </button>
+      </button> */}
+      <button style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+        <FaArrowRight size={20} color="white" />
+        </button>
+
     </div>
   );
 };

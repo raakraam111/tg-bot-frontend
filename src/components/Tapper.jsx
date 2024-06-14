@@ -9,6 +9,7 @@ import DataDisplay from "./DataDisplay";
 export default function Tapper() {
   const dispatch = useDispatch();
   const [user, setUser] = useState(defaultUserData);
+  const [userLevel] = useState(1);
   const [coins, setCoins] = useState(user.coins);
   const [userEnergy, setUserEnergy] = useState(user.userEnergy); // User starts with full energy
   const [userMaxEnergy] = useState(user.userMaxEnergy); // User starts with full energy
@@ -207,9 +208,20 @@ export default function Tapper() {
         {coins && coins.toLocaleString()}
       </div>
       
-      
+      {/* <div className="flex justify-between items-center mt-5 mb-3">
+      <div className="text-white text-lg">
+        User Level: {userLevel}
+      </div>
+      <div className="text-white text-lg">
+        Monster Energy: {monsterEnergy}
+      </div>
+    </div> */}
+
+    <div className="progress-bar-background">
+      <div className="progress-bar" style={{ width: `33%` }}></div>
+    </div>
       <img
-        src={images.c2}
+        src={images.m1}
         alt="Coin"
         className="monster-icon"
         onClick={handleTap}

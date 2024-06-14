@@ -1,4 +1,4 @@
-// import m1 from '../assets/monsters/m1.png'; 
+import m1 from '../assets/monsters/monster1.png'; 
 import c2 from '../assets/coins/c2.png'; 
 import c3 from '../assets/coins/c3.png'; 
 import c4 from '../assets/coins/c4.png'; 
@@ -35,7 +35,8 @@ import dark from '../assets/icons/dark.png';
 import steel from '../assets/icons/steel.png';
 import fairy from '../assets/icons/fairy.png';
 import rightArrow from '../assets/icons/right-arrow.png';
+import logoWithoutWord from '../assets/logo.png';
 
 export default {
-    c2,c3,c4, goldcoin, orangecoin, usdcoin, friend, goal, rocket, piechart, thunder, energy, speed, usd1, mine, normal, fire, water, electric, grass, ice, fighting, poison, ground, flying, psychic, bug, rock, ghost, dragon, dark, steel, fairy, rightArrow
+    c2,c3,c4, goldcoin, orangecoin, usdcoin, friend, goal, rocket, piechart, thunder, energy, speed, usd1, mine, normal, fire, water, electric, grass, ice, fighting, poison, ground, flying, psychic, bug, rock, ghost, dragon, dark, steel, fairy, rightArrow, m1, logoWithoutWord
 };  

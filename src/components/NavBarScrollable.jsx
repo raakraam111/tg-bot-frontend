@@ -9,9 +9,7 @@ const NavBarScrollable = ({ children }) => {
       <div className="content scrollable height-100 scroll-bg">
         <div className="game-container-scrollable">
           {children}
-          <div className="navbar">
             <NavigationBar items={menuItems} />
-          </div>
         </div>
       </div>
     </div>

@@ -28,7 +28,11 @@ const MinePage = () => {
   const coins = 7.43e5;
   return (
     <NavBarScrollable>
-      
+      <div className="mine-page-heading">
+        
+      Upgrade & Deploy Weapons
+
+      </div>
       {cardsData.map((card, index) => (
         <div
           key={index}

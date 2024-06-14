@@ -11,7 +11,7 @@ import BoostPage from "./pages/BoostPage";
 import StatsPage from "./pages/StatsPage";
 import TgDownload from './components/TgDownload';
 import "./App.css";
-
+import CardsPage from './pages/CardsPage';
 
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -33,7 +33,7 @@ function App() {
               <Route path="/task" element={<TaskPage />} />
               <Route path="/tap" element={<TapPage />} />
               <Route path="/boosters" element={<BoostPage />} />
-              <Route path="/stats" element={<StatsPage />} />
+              <Route path="/stats" element={<CardsPage />} />
               <Route path="/" element={<TapPage />} />
             </Switch>
             
