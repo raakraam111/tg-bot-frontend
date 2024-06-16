@@ -50,43 +50,7 @@ html, body {
  
  }
 
- .navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center; /* Ensure center alignment */
-  align-items: center;
-  padding: 10px 0;
-  background: #330867; 
-  /* box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); */
-  z-index: 15; /* Ensure the bar is above other content */
-}
 
-.nav-link {
-  flex: 1; /* Each link will take equal space */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Center content vertically and horizontally */
-  text-decoration: none;
-  padding: 10px;
-  margin: 0 5px;
-  border-radius: 5px;
-  /* background: linear-gradient(145deg, #1a5d2c, #0d7f25); Green gradient */
-  color: white; /* Text color */
-  transition: background-color 0.3s, transform 0.3s;
-  font-family: sans-serif; /* Specific font for nav items */
-  font-size: 14px; /* Font size for nav items */
-  font-weight: 600; /* Font weight for nav items */
-}
-
-.nav-link.active {
-  border: 1px solid rgb(255, 255, 255); /* Adds a light blue border */
-  transform: scale(1.1); /* Slightly scale up active link */
-  color: rgb(216, 198, 96); /* Sets the text color */
-}
 
 .styled-button {
   padding: 10px 20px;
@@ -165,85 +129,8 @@ html, body {
   margin-bottom: 3rem;
 }
 
-.coin-animation {
-  position: absolute;
-  animation: slideUp 2200ms forwards;
-  color: rgb(253, 252, 250);
-  font-size: 44px;
-  font-weight: 900;
-  z-index: 15; /* Ensure it's above the overlay */
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-210px);
-    opacity: 0;
-  }
-}
-
-.energy-status {
-  position: relative; /* Position it relative to the nearest positioned ancestor */
-  bottom: 12%; /* 10% from the bottom */
-  padding: 2px;
-  color: white; /* Text color */
-  font-weight: bold;
-  width: 100%; /* Adjust width considering left alignment at 4% */
-  /* background-color: #676797; */
-  display: flex;
-  justify-content: space-between; /* Distributes space between items */
-  align-items: center; /* Vertically centers items */
-  overflow: hidden;
-}
-
-.energy-status .left-icon,
-.energy-status .right-icon {
-  display: flex;
-  align-items: center; /* Ensure vertical alignment is centered */
-  margin-left: 20px;
-  margin-right: 22px;
-  /* padding: 8px 10px; /* Padding around the icons for better spacing */
-  /* border-radius: 20px; Rounded corners */ 
-  /* background-color: #34495e; Slightly lighter background than the status bar */
-  /* border: 2px solid rgb(34, 125, 190); Gold border */
-  text-transform: uppercase;
-}
-
-.energy-status .right-icon {
-  justify-content: flex-end;
-}
-
-.energy-status .left-icon {
-  justify-content: flex-start; /* Pushes content to the right */
-}
-
 .tapmaster-animation {
   animation: flowUpsideDown 1s infinite;
-}
-
-@keyframes flowUpsideDown {
-  /* 0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-50px);
-    opacity: 0;
-  } */
-
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(
-      -100vh
-    ); /* Moves the coin from bottom to above the screen */
-    opacity: 0;
-  }
 }
 
 /* .game-container {
@@ -275,31 +162,12 @@ html, body {
   width: 100%; /* Make sure it fills the container width */
   height: 100%; /* Make sure it also fills the container height */
   overflow: hidden;
-  /* background: radial-gradient(circle, rgba(255, 255, 0, 0.6), rgba(255, 255, 0, 0) 70%); */
+  background: radial-gradient(circle, rgba(255, 255, 0, 0.6), rgba(255, 255, 0, 0) 70%);
   /* background-image: url("/src/assets/bg/2.png");
   background-repeat: no-repeat;   
-  background-position: center 10px; */
+  background-position: center 50px; */
 
 }
-.progress-bar-background {
-  /* padding: 15px;  */
-  margin: 15px; 
-  width: 90%;
-  left:5%;
-  height: 10px;
-  background-color: #4e1111; /* Fallback color */
-  border-radius: 10px;
-  overflow: hidden; /* Ensures the inner bar does not overflow */
-}
-
-.progress-bar {
-  height: 100%;
-  /* background: linear-gradient(to right, lightgreen, pink, blue); */
-  border-radius: 10px;
-  transition: width 0.3s ease-in-out;
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-  }
 
 .game-container-scrollable {
   /* position: relative; */
@@ -333,17 +201,6 @@ html, body {
   }
 }
 
-.coin-flow {
-  position: fixed;
-  bottom: 0;
-  /* left: 50%; */
-  width: 44px; /* Adjust size as needed */
-  height: 44px; /* Adjust size as needed */
-  background-image: url("/src/assets/coins/orange-coin.png");
-  background-size: cover;
-  animation: flowUpsideDown 3s ease-in-out forwards;
-  z-index: 1000;
-}
 
 .items-container {
   display: flex;
@@ -395,11 +252,11 @@ html, body {
   transform: translateY(-5px); /* Slight raise effect on hover */
 }
 
-.card img {
+/* .card img {
   width: 50px;
-  height: 50px; /* Fixed size for icons */
-  align-self: center; /* Center the icon in the card */
-}
+  height: 50px;  
+  align-self: center;  
+} */
 
 .card-title {
   font-size: 1.5rem;

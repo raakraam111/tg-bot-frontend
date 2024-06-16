@@ -32,13 +32,13 @@ export const menuItems = [
     {
         title: 'Mine',
         path: '/mine',
-        icon : images.mine ,
+        icon : images.icons_mine ,
         active: false,
     },
     {
         title: 'Task',
         path: '/task',
-        icon : images.goal ,
+        icon : images.icons_goal ,
         active: false,
 
     },
@@ -47,339 +47,180 @@ export const menuItems = [
         title: 'Attack',
         path: '/tap',
         // hand icon
-        icon : images.usd1 ,
+        icon : images.coins_usd1 ,
         active: true,
     },
     {
         title: 'Boost',
         path: '/boosters',
-        icon : images.rocket ,
+        icon : images.icons_rocket ,
         active: false,
     },
     {
         title: 'Stats',
         path: '/stats',
-        icon : images.piechart ,
+        icon : images.icons_pie_chart ,
         active: false,
     },
      
 ];
-
-export const strengths = [{
-    "Normal": {
-        "Fighting": 2,
-        "Ghost": 0
-    },
-    "Fire": {
-        "Fire": 0.5,
-        "Water": 0.5,
-        "Grass": 2,
-        "Ice": 2,
-        "Bug": 2,
-        "Rock": 0.5,
-        "Dragon": 0.5,
-        "Steel": 2
-    },
-    "Water": {
-        "Fire": 2,
-        "Water": 0.5,
-        "Electric": 0.5,
-        "Grass": 0.5,
-        "Ground": 2,
-        "Rock": 2,
-        "Dragon": 0.5
-    },
-    "Electric": {
-        "Electric": 0.5,
-        "Ground": 0,
-        "Water": 2,
-        "Flying": 2,
-        "Dragon": 0.5
-    },
-    "Grass": {
-        "Fire": 0.5,
-        "Water": 2,
-        "Grass": 0.5,
-        "Poison": 0.5,
-        "Ground": 2,
-        "Flying": 0.5,
-        "Bug": 0.5,
-        "Rock": 2,
-        "Dragon": 0.5,
-        "Steel": 0.5
-    },
-    "Ice": {
-        "Fire": 0.5,
-        "Ice": 0.5,
-        "Fighting": 2,
-        "Rock": 2,
-        "Steel": 0.5
-    },
-    "Fighting": {
-        "Flying": 0.5,
-        "Psychic": 0.5,
-        "Bug": 0.5,
-        "Rock": 2,
-        "Dark": 2,
-        "Fairy": 0.5
-    },
-    "Poison": {
-        "Grass": 2,
-        "Fighting": 0.5,
-        "Poison": 0.5,
-        "Ground": 0.5,
-        "Psychic": 2,
-        "Bug": 0.5,
-        "Rock": 0.5,
-        "Ghost": 0.5,
-        "Steel": 0
-    },
-    "Ground": {
-        "Fire": 2,
-        "Electric": 2,
-        "Grass": 0.5,
-        "Poison": 2,
-        "Flying": 0,
-        "Bug": 0.5,
-        "Rock": 2
-    },
-    "Flying": {
-        "Electric": 0.5,
-        "Grass": 2,
-        "Fighting": 2,
-        "Bug": 2,
-        "Rock": 0.5,
-        "Steel": 0.5
-    },
-    "Psychic": {
-        "Fighting": 2,
-        "Psychic": 0.5,
-        "Bug": 2,
-        "Ghost": 2,
-        "Dark": 0
-    },
-    "Bug": {
-        "Fire": 0.5,
-        "Grass": 2,
-        "Fighting": 0.5,
-        "Ground": 0.5,
-        "Flying": 0.5,
-        "Rock": 2,
-        "Ghost": 0.5,
-        "Steel": 0.5,
-        "Fairy": 0.5
-    },
-    "Rock": {
-        "Normal": 0.5,
-        "Fire": 2,
-        "Water": 0.5,
-        "Grass": 0.5,
-        "Fighting": 0.5,
-        "Poison": 2,
-        "Ground": 0.5,
-        "Flying": 2,
-        "Steel": 0.5
-    },
-    "Ghost": {
-        "Normal": 0,
-        "Fighting": 0,
-        "Poison": 0.5,
-        "Bug": 0.5,
-        "Ghost": 2,
-        "Dark": 2
-    },
-    "Dragon": {
-        "Fire": 0.5,
-        "Water": 0.5,
-        "Electric": 0.5,
-        "Grass": 0.5,
-        "Dragon": 2,
-        "Fairy": 0
-    },
-    "Dark": {
-        "Fighting": 2,
-        "Psychic": 0,
-        "Bug": 2,
-        "Ghost": 0.5,
-        "Dark": 0.5,
-        "Fairy": 2
-    },
-    "Steel": {
-        "Fire": 0.5,
-        "Water": 0.5,
-        "Electric": 0.5,
-        "Ice": 2,
-        "Rock": 2,
-        "Steel": 0.5,
-        "Fairy": 2
-    },
-    "Fairy": {
-        "Fighting": 0.5,
-        "Poison": 2,
-        "Bug": 0.5,
-        "Dragon": 0,
-        "Dark": 2,
-        "Steel": 0.5
-    }
-}];
-
-export const weakness = [{
-    "Normal": {
-        "Fighting": 2,
-        "Ghost": 0
-    },
-    "Fire": {
-        "Fire": 0.5,
-        "Water": 0.5,
-        "Grass": 2,
-        "Ice": 2,
-        "Bug": 2,
-        "Rock": 0.5,
-        "Dragon": 0.5,
-        "Steel": 2
-    },
-    "Water": {
-        "Fire": 2,
-        "Water": 0.5,
-        "Electric": 0.5,
-        "Grass": 0.5,
-        "Ground": 2,
-        "Rock": 2,
-        "Dragon": 0.5
-    },
-    "Electric": {
-        "Electric": 0.5,
-        "Ground": 0,
-        "Water": 2,
-        "Flying": 2,
-        "Dragon": 0.5
-    },
-    "Grass": {
-        "Fire": 0.5,
-        "Water": 2,
-        "Grass": 0.5,
-        "Poison": 0.5,
-        "Ground": 2,
-        "Flying": 0.5,
-        "Bug": 0.5,
-        "Rock": 2,
-        "Dragon": 0.5,
-        "Steel": 0.5
-    },
-    "Ice": {
-        "Fire": 0.5,
-        "Ice": 0.5,
-        "Fighting": 2,
-        "Rock": 2,
-        "Steel": 0.5
-    },
-    "Fighting": {
-        "Flying": 0.5,
-        "Psychic": 0.5,
-        "Bug": 0.5,
-        "Rock": 2,
-        "Dark": 2,
-        "Fairy": 0.5
-    },
-    "Poison": {
-        "Grass": 2,
-        "Fighting": 0.5,
-        "Poison": 0.5,
-        "Ground": 0.5,
-        "Psychic": 2,
-        "Bug": 0.5,
-        "Rock": 0.5,
-        "Ghost": 0.5,
-        "Steel": 0
-    },
-    "Ground": {
-        "Fire": 2,
-        "Electric": 2,
-        "Grass": 0.5,
-        "Poison": 2,
-        "Flying": 0,
-        "Bug": 0.5,
-        "Rock": 2
-    },
-    "Flying": {
-        "Electric": 0.5,
-        "Grass": 2,
-        "Fighting": 2,
-        "Bug": 2,
-        "Rock": 0.5,
-        "Steel": 0.5
-    },
-    "Psychic": {
-        "Fighting": 2,
-        "Psychic": 0.5,
-        "Bug": 2,
-        "Ghost": 2,
-        "Dark": 0
-    },
-    "Bug": {
-        "Fire": 0.5,
-        "Grass": 2,
-        "Fighting": 0.5,
-        "Ground": 0.5,
-        "Flying": 0.5,
-        "Rock": 2,
-        "Ghost": 0.5,
-        "Steel": 0.5,
-        "Fairy": 0.5
-    },
-    "Rock": {
-        "Normal": 0.5,
-        "Fire": 2,
-        "Water": 0.5,
-        "Grass": 0.5,
-        "Fighting": 0.5,
-        "Poison": 2,
-        "Ground": 0.5,
-        "Flying": 2,
-        "Steel": 0.5
-    },
-    "Ghost": {
-        "Normal": 0,
-        "Fighting": 0,
-        "Poison": 0.5,
-        "Bug": 0.5,
-        "Ghost": 2,
-        "Dark": 2
-    },
-    "Dragon": {
-        "Fire": 0.5,
-        "Water": 0.5,
-        "Electric": 0.5,
-        "Grass": 0.5,
-        "Dragon": 2,
-        "Fairy": 0
-    },
-    "Dark": {
-        "Fighting": 2,
-        "Psychic": 0,
-        "Bug": 2,
-        "Ghost": 0.5,
-        "Dark": 0.5,
-        "Fairy": 2
-    },
-    "Steel": {
-        "Fire": 0.5,
-        "Water": 0.5,
-        "Electric": 0.5,
-        "Ice": 2,
-        "Rock": 2,
-        "Steel": 0.5,
-        "Fairy": 2
-    },
-    "Fairy": {
-        "Fighting": 0.5,
-        "Poison": 2,
-        "Bug": 0.5,
-        "Dragon": 0,
-        "Dark": 2,
-        "Steel": 0.5
-    }
-}
+ 
+export const damageData = [
+    {
+        "Normal": {
+            "Fighting":2,
+            "Ghost":0,
+        },
+        "Fire": {
+          "Fire": 1/2,
+          "Water": 2,
+          "Grass": 1/2,
+          "Ice": 1/2,
+          "Ground": 2,
+          "Bug": 1/2,
+          "Rock": 2,
+          "Fairy": 1/2,
+          "Steel": 1/2
+        },
+        "Water": {
+          "Fire": 1/2,
+          "Water": 1/2,
+          "Electric": 2,
+          "Grass": 2,
+          "Ice": 1/2,
+          "Steel": 1/2
+        },
+        "Electric": {
+          "Electric": 1/2,
+          "Ground": 2,
+          "Flying": 1/2,
+          "Steel": 1/2
+        },
+        "Grass": {
+          "Fire": 2,
+          "Water": 1/2,
+          "Electric": 1/2,
+          "Grass": 1/2,
+          "Ice": 2,
+          "Poison": 2,
+          "Ground": 1/2,
+          "Flying": 2,
+          "Bug":  2, 
+        },
+        "Ice": {
+          "Fire":  2,
+          "Ice": 1/2,
+          "Fighting": 2,
+          "Rock": 2,
+          "Steel": 1/2
+        },
+        "Fighting": {
+          "Flying": 1/2,
+          "Psychic": 1/2,
+          "Bug": 1/2,
+          "Rock": 2,
+          "Dark": 2,
+          "Fairy": 1/2
+        },
+        "Poison": {
+          "Grass": 2,
+          "Fighting": 1/2,
+          "Poison": 1/2,
+          "Ground": 1/2,
+          "Psychic": 2,
+          "Bug": 1/2,
+          "Rock": 1/2,
+          "Ghost": 1/2,
+          "Steel": 0
+        },
+        "Ground": {
+          "Fire": 2,
+          "Electric": 2,
+          "Grass": 1/2,
+          "Poison": 2,
+          "Flying": 0,
+          "Bug": 1/2,
+          "Rock": 2
+        },
+        "Flying": {
+          "Electric": 1/2,
+          "Grass": 2,
+          "Fighting": 2,
+          "Bug": 2,
+          "Rock": 1/2,
+          "Steel": 1/2
+        },
+        "Psychic": {
+          "Fighting": 2,
+          "Psychic": 1/2,
+          "Bug": 2,
+          "Ghost": 2,
+          "Dark": 0
+        },
+        "Bug": {
+          "Fire": 1/2,
+          "Grass": 2,
+          "Fighting": 1/2,
+          "Ground": 1/2,
+          "Flying": 1/2,
+          "Rock": 2,
+          "Ghost": 1/2,
+          "Steel": 1/2,
+          "Fairy": 1/2
+        },
+        "Rock": {
+          "Normal": 1/2,
+          "Fire": 2,
+          "Water": 1/2,
+          "Grass": 1/2,
+          "Fighting": 1/2,
+          "Poison": 2,
+          "Ground": 1/2,
+          "Flying": 2,
+          "Steel": 1/2
+        },
+        "Ghost": {
+          "Normal": 0,
+          "Fighting": 0,
+          "Poison": 1/2,
+          "Bug": 1/2,
+          "Ghost": 2,
+          "Dark": 2
+        },
+        "Dragon": {
+          "Fire": 1/2,
+          "Water": 1/2,
+          "Electric": 1/2,
+          "Grass": 1/2,
+          "Dragon": 2,
+          "Fairy": 0
+        },
+        "Dark": {
+          "Fighting": 2,
+          "Psychic": 0,
+          "Bug": 2,
+          "Ghost": 1/2,
+          "Dark": 1/2,
+          "Fairy": 2
+        },
+        "Steel": {
+          "Fire": 1/2,
+          "Water": 1/2,
+          "Electric": 1/2,
+          "Ice": 2,
+          "Rock": 2,
+          "Steel": 1/2,
+          "Fairy": 2
+        },
+        "Fairy": {
+          "Fighting": 1/2,
+          "Poison": 2,
+          "Bug": 1/2,
+          "Dragon": 0,
+          "Dark": 2,
+          "Steel": 1/2
+        }
+      }
 ]
 
 export const monsterData = [
@@ -807,5 +648,4 @@ export const weaponNames = {
         "Fae Falchion"
     ]
 }
- 
  

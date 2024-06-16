@@ -1,0 +1,102 @@
+.coin-flow {
+    position: fixed;
+    bottom: 0;
+    /* left: 50%; */
+    width: 44px; /* Adjust size as needed */
+    height: 44px; /* Adjust size as needed */
+    background-image: url("/src/assets/coins/orange-coin.png");
+    background-size: cover;
+    animation: flowUpsideDown 3s ease-in-out forwards;
+    z-index: 1000;
+  }
+  
+  @keyframes flowUpsideDown {
+    
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(
+        -100vh
+      ); /* Moves the coin from bottom to above the screen */
+      opacity: 0;
+    }
+  }
+  
+  .progress-bar-background {
+    /* padding: 15px;  */
+    margin: 15px; 
+    width: 90%;
+    left:5%;
+    height: 10px;
+    background-color: #4e1111; /* Fallback color */
+    border-radius: 10px;
+    overflow: hidden; /* Ensures the inner bar does not overflow */
+  }
+  
+
+.progress-bar {
+    height: 100%;
+    /* background: linear-gradient(to right, lightgreen, pink, blue); */
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    }
+  
+.coin-animation {
+    position: absolute;
+    animation: slideUp 2200ms forwards;
+    color: rgb(253, 252, 250);
+    font-size: 44px;
+    font-weight: 900;
+    z-index: 15; /* Ensure it's above the overlay */
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-210px);
+      opacity: 0;
+    }
+  }
+  
+  .energy-status {
+    position: relative; /* Position it relative to the nearest positioned ancestor */
+    bottom: 12%; /* 10% from the bottom */
+    padding: 2px;
+    color: white; /* Text color */
+    font-weight: bold;
+    width: 100%; /* Adjust width considering left alignment at 4% */
+    /* background-color: #676797; */
+    display: flex;
+    justify-content: space-between; /* Distributes space between items */
+    align-items: center; /* Vertically centers items */
+    overflow: hidden;
+  }
+  
+  .energy-status .left-icon,
+  .energy-status .right-icon {
+    display: flex;
+    align-items: center; /* Ensure vertical alignment is centered */
+    margin-left: 20px;
+    margin-right: 22px;
+    /* padding: 8px 10px; /* Padding around the icons for better spacing */
+    /* border-radius: 20px; Rounded corners */ 
+    /* background-color: #34495e; Slightly lighter background than the status bar */
+    /* border: 2px solid rgb(34, 125, 190); Gold border */
+    text-transform: uppercase;
+  }
+  
+  .energy-status .right-icon {
+    justify-content: flex-end;
+  }
+  
+  .energy-status .left-icon {
+    justify-content: flex-start; /* Pushes content to the right */
+  }
+  

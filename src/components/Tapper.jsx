@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeUserData } from "../store/slices/userSlice";
 import { defaultUserData } from "../constants/constants";
 import DataDisplay from "./DataDisplay";
+import "./Tapper.css" ;
 
 export default function Tapper() {
+
   const dispatch = useDispatch();
   const [user, setUser] = useState(defaultUserData);
   const [userLevel] = useState(1);
@@ -203,7 +205,7 @@ export default function Tapper() {
 
       <div className="flex text-3xl score ">
         <span className="pr-1 ">
-          <img src={images.usd1} width="50" height="50" />
+          <img src={images.coins_usd1} width="50" height="50" />
         </span>
         {coins && coins.toLocaleString()}
       </div>
@@ -221,7 +223,7 @@ export default function Tapper() {
       <div className="progress-bar" style={{ width: `33%` }}></div>
     </div>
       <img
-        src={images.m1}
+        src={images.monsters_monster1}
         alt="Coin"
         className="monster-icon"
         onClick={handleTap}
@@ -252,7 +254,7 @@ export default function Tapper() {
       </div> */}
       <div className="energy-status text-white  z-1000">
         <div className="left-icon">
-          <img src={images.thunder} alt="Thunder" width="30" height="30" />
+          <img src={images.icons_thunder} alt="Thunder" width="30" height="30" />
           {userEnergy}/{userMaxEnergy}
         </div>
         <div
@@ -261,7 +263,7 @@ export default function Tapper() {
           disabled={isAutoTapping}
         >
           <img
-            src={images.speed}
+            src={images.icons_speed}
             alt="Boost"
             width="30"
             height="30"
