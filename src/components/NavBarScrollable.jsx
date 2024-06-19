@@ -2,7 +2,7 @@ import React from "react";
 
 import NavigationBar from "./NavigationBar";
 import { menuItems } from "../constants/constants";
-import "./NavBar.css";
+import "../css/NavBar.css";
 
 const NavBarScrollable = ({ children }) => {
   return (  

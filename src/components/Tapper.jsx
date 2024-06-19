@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeUserData } from "../store/slices/userSlice";
 import { defaultUserData } from "../constants/constants";
 import DataDisplay from "./DataDisplay";
-import "./Tapper.css" ;
-
+import "../css/Tapper.css" ;
+import Modal from "./Modal";
 export default function Tapper() {
 
   const dispatch = useDispatch();
@@ -29,6 +29,7 @@ export default function Tapper() {
     user.autoTapEnergyCost
   ); // Cost of each auto tap to user energy
   const [coinAnimations, setCoinAnimations] = useState([]);
+  const [showModal, setShowModal] = useState(true);
 
   useEffect(() => {
     let interval;
@@ -47,7 +48,11 @@ export default function Tapper() {
 
     return () => clearInterval(interval); // Clean up interval
   }, [animations, userEnergy, userMaxEnergy]);
-
+  useEffect(() => {
+    if (userEnergy === 0) {
+      setShowModal(true);
+    }
+  }, [userEnergy]);
   const handleTap = (event) => {
     if (isAutoTapping) return; // Prevent manual taps during auto tapping
     const { clientX, clientY } = event; // Get tap coordinates
@@ -273,6 +278,7 @@ export default function Tapper() {
           {isAutoTapping ? "Tapping" : "Swift"}
         </div>
       </div>
+      <Modal show={showModal} onClose={() => setShowModal(false)} />
 
       {/*   <div className="energy-status font-bold text-black py-2">
         Monster Energy: {monsterEnergy}

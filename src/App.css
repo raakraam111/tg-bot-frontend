@@ -162,7 +162,7 @@ html, body {
   width: 100%; /* Make sure it fills the container width */
   height: 100%; /* Make sure it also fills the container height */
   overflow: hidden;
-  background: radial-gradient(circle, rgba(255, 255, 0, 0.6), rgba(255, 255, 0, 0) 70%);
+  /* background: radial-gradient(circle, rgba(255, 255, 0, 0.6), rgba(255, 255, 0, 0) 70%); */
   /* background-image: url("/src/assets/bg/2.png");
   background-repeat: no-repeat;   
   background-position: center 50px; */

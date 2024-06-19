@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Routes as Switch,
-} from 'react-router-dom';
+} from "react-router-dom";
 import MinePage from "./pages/MinePage";
 import TaskPage from "./pages/TaskPage";
 import TapPage from "./pages/TapPage";
 import BoostPage from "./pages/BoostPage";
 import StatsPage from "./pages/StatsPage";
-import TgDownload from './components/TgDownload';
+import TgDownload from "./components/TgDownload";
 import "./App.css";
-import CardsPage from './pages/CardsPage';
+import CardsPage from "./pages/CardsPage";
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
 
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -24,10 +25,13 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   // console.log({isMobile})
+  const appUrl = "ton.vote";
+  const manifestUrl = "https://" + appUrl + "/tonconnect-manifest.json";
   return (
-    <Router>
-       {isMobile ? (
-          < >
+    <TonConnectUIProvider manifestUrl={manifestUrl}>
+      <Router>
+        {isMobile ? (
+          <>
             <Switch>
               <Route path="/mine" element={<MinePage />} />
               <Route path="/task" element={<TaskPage />} />
@@ -36,14 +40,14 @@ function App() {
               <Route path="/stats" element={<CardsPage />} />
               <Route path="/" element={<TapPage />} />
             </Switch>
-            
           </>
-       ) : (
+        ) : (
           <div className="content">
             <TgDownload />
           </div>
         )}
-    </Router>
+      </Router>
+    </TonConnectUIProvider>
   );
 }
 

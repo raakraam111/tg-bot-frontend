@@ -91,3 +91,32 @@ import { split } from "postcss/lib/list"
 // 500 projects - 10k usd per project - 5M usd
 
 // Total Revenue - 10.2M usd per year
+
+
+// Developers documentation
+// Game mechanics - Users can tap on the monster to kill it and get rewards. The user can also tap on the chest after killing the monster to level up and to get rewards. The user can also buy weapons and armors to kill the monsters faster. The user can also upgrade the weapons and armors to kill the monsters faster. The user can also invite friends to play the game and get rewards for it. The user can also get rewards by completing daily tasks and challenges.
+
+// Game flow -
+// 1. User will be presented with a monster
+// 2. User can tap on the monster to kill it
+// 3. After killing the monster, the user will get rewards in the form of mini coins
+// 4. The user can tap on the chest to get rewards
+// 5. The user can use the mini coins to buy/upgrade weapons and armors
+// 6. The user can also invite friends to play the game and get rewards for it
+// 7. The user can also get rewards by completing daily tasks and challenges
+
+// Game Screens
+// 1. Splash Screen
+// 2. Game Screen 
+// 3. Shop Screen
+// 4. Invite Screen
+// 5. Daily Tasks Screen
+// 6. Weapons Screen
+
+// Skins for VIP users
+// 1. Stranger Things
+// 2. Money Heist
+// 3. Harry Potter
+// 4. Avengers
+// 5. Game of Thrones
+

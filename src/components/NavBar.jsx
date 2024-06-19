@@ -4,15 +4,18 @@ import NavigationBar from "./NavigationBar";
 import { menuItems } from "../constants/constants";
 import { FaUser, FaTrophy } from 'react-icons/fa'; // Import icons from react-icons
 import images from "../constants/images";
-import "./NavBar.css";
+import "../css/NavBar.css";
+import {TonConnectButton} from "@tonconnect/ui-react";
 
 const NavBar = ({ children }) => {
   return (
     <div className="container">
       <div className="header">
         <div className="user-info">
-           <img src={images.assets_logo} width={40}/> 
-          <span className="text-white pl-1 ">{"Red Bull"}</span>
+      <TonConnectButton />
+
+           {/* <img src={images.assets_logo} width={40}/> 
+          <span className="text-white pl-1 ">{"Red Bull"}</span> */}
         </div>
         <div className="level-info">
         <img src={images.coins_gold_coin} width={40}/> 
